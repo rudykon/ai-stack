@@ -1,0 +1,94 @@
+{
+  "models": [
+    {
+      "id": "Qwen/Qwen3.6-27B",
+      "label": "Qwen 3.6 27B",
+      "type": "chat",
+      "base_url": "http://127.0.0.1:8000/v1",
+      "api_key_env": "API_KEY",
+      "default": true,
+      "defaults": {
+        "temperature": 0.7,
+        "max_tokens": 1024,
+        "enable_thinking": false
+      },
+      "runner": "lazy-transformers-worker",
+      "health_url": "http://127.0.0.1:8000/health",
+      "features": [
+        "openai-chat",
+        "streaming",
+        "lazy-unload",
+        "thinking-toggle"
+      ]
+    },
+    {
+      "id": "Qwen/Qwen-Image-2512",
+      "label": "Qwen Image 2512",
+      "type": "image",
+      "base_url": "http://127.0.0.1:8001/v1",
+      "api_key_env": "API_KEY",
+      "default": true,
+      "defaults": {
+        "size": "512x512",
+        "steps": 12,
+        "true_cfg_scale": 4.0
+      },
+      "sizes": [
+        "256x256",
+        "512x512",
+        "768x768",
+        "1024x1024"
+      ],
+      "runner": "lazy-diffusers-worker",
+      "health_url": "http://127.0.0.1:8001/health",
+      "features": [
+        "openai-images",
+        "seed-control",
+        "lazy-unload",
+        "local-gallery"
+      ]
+    }
+  ],
+  "stack": {
+    "name": "Local Stack Console",
+    "architecture": "Open WebUI UI pattern + LiteLLM-style gateway + vLLM/SGLang serving targets + ComfyUI/LocalAI image workflow targets",
+    "reference_projects": [
+      {
+        "name": "Open WebUI",
+        "role": "mature local model UI and OpenAI-compatible client surface",
+        "local": "references/open-webui.README.md",
+        "url": "https://github.com/open-webui/open-webui"
+      },
+      {
+        "name": "vLLM",
+        "role": "high-throughput OpenAI-compatible LLM serving target",
+        "local": "references/vllm.README.md",
+        "url": "https://github.com/vllm-project/vllm"
+      },
+      {
+        "name": "SGLang",
+        "role": "structured/high-throughput serving target for Qwen-class models",
+        "local": "references/sglang.README.md",
+        "url": "https://github.com/sgl-project/sglang"
+      },
+      {
+        "name": "ComfyUI",
+        "role": "node-based image workflow and generation queue reference",
+        "local": "references/comfyui.README.md",
+        "url": "https://github.com/Comfy-Org/ComfyUI"
+      },
+      {
+        "name": "LocalAI",
+        "role": "single OpenAI-compatible local multi-modal API reference",
+        "local": "references/localai.README.md",
+        "url": "https://github.com/mudler/LocalAI"
+      },
+      {
+        "name": "LiteLLM",
+        "role": "API gateway, routing and model-list reference",
+        "local": "references/litellm.README.md",
+        "url": "https://github.com/BerriAI/litellm"
+      }
+    ]
+  }
+}

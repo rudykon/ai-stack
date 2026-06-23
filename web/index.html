@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Model Console</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-panel">
+      <div class="brand-block">
+        <div class="brand-mark">LS</div>
+        <div>
+          <h1>Local Stack Console</h1>
+          <p id="healthText">Starting</p>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="chatModel">Chat model</label>
+        <select id="chatModel"></select>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="temperature">Temp</label>
+          <input id="temperature" type="number" min="0" max="2" step="0.1" value="0.7">
+        </div>
+        <div class="field-group">
+          <label for="maxTokens">Max tokens</label>
+          <input id="maxTokens" type="number" min="1" max="8192" step="1" value="1024">
+        </div>
+      </div>
+      <label class="check-row">
+        <input id="enableThinking" type="checkbox">
+        <span>Thinking mode</span>
+      </label>
+
+      <div class="divider"></div>
+
+      <div class="field-group">
+        <label for="imageModel">Image model</label>
+        <select id="imageModel"></select>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="imageSize">Size</label>
+          <select id="imageSize"></select>
+        </div>
+        <div class="field-group">
+          <label for="steps">Steps</label>
+          <input id="steps" type="number" min="1" max="80" step="1" value="12">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="cfgScale">CFG</label>
+          <input id="cfgScale" type="number" min="1" max="20" step="0.5" value="4">
+        </div>
+        <div class="field-group">
+          <label for="seed">Seed</label>
+          <input id="seed" type="number" step="1" placeholder="Auto">
+        </div>
+      </div>
+      <label class="check-row">
+        <input id="magicPrompt" type="checkbox">
+        <span>Magic prompt</span>
+      </label>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div class="tabs" role="tablist">
+          <button id="chatTab" class="tab active" type="button">Chat</button>
+          <button id="imageTab" class="tab" type="button">Image</button>
+          <button id="stackTab" class="tab" type="button">Stack</button>
+        </div>
+        <button id="clearButton" class="ghost-button" type="button">Clear</button>
+      </header>
+
+      <section id="chatView" class="view active">
+        <div id="chatMessages" class="messages"></div>
+        <form id="chatForm" class="composer">
+          <textarea id="chatInput" rows="3" placeholder="Send a message"></textarea>
+          <button id="sendChat" class="primary-button" type="submit">Send</button>
+        </form>
+      </section>
+
+      <section id="imageView" class="view">
+        <form id="imageForm" class="image-form">
+          <textarea id="imagePrompt" rows="5" placeholder="Describe the image"></textarea>
+          <textarea id="negativePrompt" rows="2" placeholder="Negative prompt"></textarea>
+          <button id="generateImage" class="primary-button" type="submit">Generate</button>
+        </form>
+        <div id="imageResults" class="image-results"></div>
+      </section>
+
+      <section id="stackView" class="view">
+        <div class="stack-layout">
+          <div class="stack-panel wide-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Stack</h2>
+                <p id="gatewayText">Gateway loading</p>
+              </div>
+              <button id="refreshStack" class="ghost-button" type="button">Refresh</button>
+            </div>
+            <div id="layerCards" class="layer-grid"></div>
+          </div>
+
+          <div class="stack-panel">
+            <h2>Models</h2>
+            <div id="modelHealth" class="health-list"></div>
+          </div>
+
+          <div class="stack-panel">
+            <h2>Integrations</h2>
+            <div id="integrationSnippets" class="snippet-list"></div>
+          </div>
+
+          <div class="stack-panel wide-panel">
+            <h2>References</h2>
+            <div id="referenceList" class="reference-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+accelerate
+fastapi
+modelscope
+openai
+pillow
+qwen-vl-utils
+safetensors
+sentencepiece
+transformers[serving]
+uvicorn[standard]
+socksio
+diffusers
+protobuf
+httpx
