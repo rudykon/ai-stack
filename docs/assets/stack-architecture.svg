@@ -1,52 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
   <title id="title">Local AI Stack Architecture</title>
-  <desc id="desc">A concise layered architecture diagram for the local AI stack.</desc>
-  <defs>
-    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#111827" flood-opacity="0.10"/></filter>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker>
-    <style>
-      .bg{fill:#f7f8fa}.surface{fill:#fff;stroke:#d8dee4;stroke-width:1.5;filter:url(#shadow)}.group{fill:#fff;stroke:#d8dee4;stroke-width:1.4}.client{fill:#edf5ff;stroke:#b8d2f0;stroke-width:1.4}.gateway{fill:#e9f6ef;stroke:#a9d9bf;stroke-width:1.4}.runner{fill:#fff5d8;stroke:#e7cf74;stroke-width:1.4}.ops{fill:#f3eefb;stroke:#d3c2f0;stroke-width:1.4}.title{font:800 32px Inter,Segoe UI,Arial,sans-serif;fill:#18202a}.small{font:700 13px Inter,Segoe UI,Arial,sans-serif;fill:#667085}.label{font:760 22px Inter,Segoe UI,Arial,sans-serif;fill:#1f2328}.tag{font:650 14px Inter,Segoe UI,Arial,sans-serif;fill:#3d444d}.mono{font:650 13px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#3d444d}.line{stroke:#64748b;stroke-width:2.5;fill:none;marker-end:url(#arrow)}.soft{stroke:#cbd5df;stroke-width:1.5;fill:none}.pill{fill:#fff;stroke:#cfd7df;stroke-width:1.2}.dot{fill:#176b5b}
-    </style>
-  </defs>
-  <rect class="bg" width="1200" height="640" rx="20"/>
-  <rect class="surface" x="48" y="42" width="1104" height="556" rx="16"/>
-
-  <text class="title" x="84" y="94">Local AI Stack</text>
-  <rect class="pill" x="864" y="64" width="214" height="34" rx="8"/>
-  <circle class="dot" cx="886" cy="81" r="5"/>
-  <text class="small" x="902" y="86">OpenAI-compatible</text>
-
-  <rect class="group" x="84" y="158" width="270" height="310" rx="12"/>
-  <text class="small" x="112" y="194">CLIENTS</text>
-  <rect class="client" x="112" y="226" width="214" height="58" rx="8"/>
-  <text class="label" x="140" y="263">Web UI</text>
-  <rect class="client" x="112" y="310" width="214" height="58" rx="8"/>
-  <text class="label" x="140" y="347">API</text>
-  <rect class="client" x="112" y="394" width="214" height="44" rx="8"/>
-  <text class="mono" x="140" y="423">&lt;LAN_IP&gt;:8080</text>
-
-  <rect class="group" x="466" y="158" width="270" height="310" rx="12"/>
-  <text class="small" x="494" y="194">GATEWAY</text>
-  <rect class="gateway" x="494" y="226" width="214" height="58" rx="8"/>
-  <text class="label" x="522" y="263">/v1</text>
-  <rect class="gateway" x="494" y="310" width="214" height="58" rx="8"/>
-  <text class="label" x="522" y="347">Registry</text>
-  <rect class="gateway" x="494" y="394" width="214" height="44" rx="8"/>
-  <text class="tag" x="522" y="423">health · routing</text>
-
-  <rect class="group" x="848" y="158" width="270" height="310" rx="12"/>
-  <text class="small" x="876" y="194">RUNNERS</text>
-  <rect class="runner" x="876" y="226" width="214" height="58" rx="8"/>
-  <text class="label" x="904" y="263">Chat</text>
-  <rect class="runner" x="876" y="310" width="214" height="58" rx="8"/>
-  <text class="label" x="904" y="347">Image</text>
-  <rect class="ops" x="876" y="394" width="214" height="44" rx="8"/>
-  <text class="tag" x="904" y="423">models · logs</text>
-
-  <path class="line" d="M354 255 H466"/>
-  <path class="line" d="M354 339 H466"/>
-  <path class="line" d="M736 255 H848"/>
-  <path class="line" d="M736 339 H848"/>
-  <rect class="pill" x="426" y="520" width="348" height="42" rx="8"/>
-  <text class="tag" x="472" y="547">lazy load · idle unload · local first</text>
+  <desc id="desc">A simple ASCII-style architecture diagram for the local AI stack.</desc>
+  <rect width="1200" height="420" fill="#ffffff"/>
+  <text x="72" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#1f2328">Local AI Stack</text>
+  <text x="72" y="120" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#1f2328" xml:space="preserve">
+    <tspan x="72" dy="0">+------------------+      +----------------------+      +------------------+</tspan>
+    <tspan x="72" dy="30">| Clients          |      | Gateway              |      | Runners          |</tspan>
+    <tspan x="72" dy="30">|                  |      |                      |      |                  |</tspan>
+    <tspan x="72" dy="30">| Web UI           | ---&gt; | /v1 API              | ---&gt; | Chat worker      |</tspan>
+    <tspan x="72" dy="30">| API clients      |      | Model registry       |      | Image worker     |</tspan>
+    <tspan x="72" dy="30">| &lt;LAN_IP&gt;:8080    |      | Health / routing     |      | Models / logs    |</tspan>
+    <tspan x="72" dy="30">+------------------+      +----------------------+      +------------------+</tspan>
+    <tspan x="72" dy="58">lazy load  -&gt;  idle unload  -&gt;  local first</tspan>
+  </text>
 </svg>
