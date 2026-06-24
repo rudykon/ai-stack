@@ -176,20 +176,34 @@ outputs/qwen-image/
 
 ## 与社区项目的关系
 
-本项目借鉴的是分层思路，而不是复制大型项目代码：
+本项目参考的是社区项目的产品形态和架构分层，不复制其代码。参考关系如下：
 
-- Open WebUI：成熟 Web UI、多模型入口和 OpenAI-compatible 客户端体验。
-- LiteLLM：统一网关、模型路由和外部工具接入方式。
-- vLLM / SGLang：未来可替换的高吞吐文本推理层。
-- ComfyUI / LocalAI：未来可扩展的图片工作流和多模态服务层。
+- UI 层：参考 Open WebUI 的本地模型控制台、多模型入口和 OpenAI-compatible 客户端体验 [1]。
+- 网关层：参考 LiteLLM 的统一 API 网关、模型路由和外部工具接入方式 [2]。
+- 推理层：参考 vLLM 和 SGLang 的高吞吐 OpenAI-compatible serving 设计，作为未来替换文本 worker 的方向 [3,4]。
+- 图片/多模态层：参考 ComfyUI 的图片工作流，以及 LocalAI 的本地多模态 API 聚合思路 [5,6]。
 
-相关说明在：
+本项目中的本地参考快照和接入说明见：
 
 ```text
 docs/STACK.md
 integrations/
 references/
 ```
+
+### 参考项目
+
+[1] Open WebUI. *open-webui/open-webui*. GitHub repository. <https://github.com/open-webui/open-webui>. 访问日期：2026-06-24。
+
+[2] LiteLLM. *BerriAI/litellm*. GitHub repository. <https://github.com/BerriAI/litellm>. 访问日期：2026-06-24。
+
+[3] vLLM. *vllm-project/vllm*. GitHub repository. <https://github.com/vllm-project/vllm>. 访问日期：2026-06-24。
+
+[4] SGLang. *sgl-project/sglang*. GitHub repository. <https://github.com/sgl-project/sglang>. 访问日期：2026-06-24。
+
+[5] ComfyUI. *Comfy-Org/ComfyUI*. GitHub repository. <https://github.com/Comfy-Org/ComfyUI>. 访问日期：2026-06-24。
+
+[6] LocalAI. *mudler/LocalAI*. GitHub repository. <https://github.com/mudler/LocalAI>. 访问日期：2026-06-24。
 
 ## 验证
 
