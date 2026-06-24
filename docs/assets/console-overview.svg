@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Console Overview</title>
+  <desc id="desc">Illustration of the local stack console with chat, image and stack tabs.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f6f7f9}.panel{fill:#fff;stroke:#d8dee4;stroke-width:2}.side{fill:#eef3f1;stroke:#d8dee4;stroke-width:2}.accent{fill:#176b5b}.tab{fill:#eef3f1}.text{font:700 20px Inter,Segoe UI,Arial,sans-serif;fill:#1f2328}.small{font:500 14px Inter,Segoe UI,Arial,sans-serif;fill:#667085}.tiny{font:600 12px Inter,Segoe UI,Arial,sans-serif;fill:#667085}.line{stroke:#d8dee4;stroke-width:2}.bubble{fill:#edf5ff;stroke:#cfe0f5;stroke-width:2}.card{fill:#fff;stroke:#d8dee4;stroke-width:2}
+    </style>
+  </defs>
+  <rect class="bg" width="1100" height="620" rx="24"/>
+  <rect class="panel" x="70" y="60" width="960" height="500" rx="18"/>
+  <rect class="side" x="70" y="60" width="280" height="500" rx="18"/>
+  <rect class="accent" x="100" y="94" width="48" height="48" rx="9"/>
+  <text x="114" y="124" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="800">LS</text>
+  <text class="text" x="164" y="112">Local Stack</text>
+  <text class="small" x="164" y="136">Ready</text>
+
+  <text class="tiny" x="100" y="190">CHAT MODEL</text>
+  <rect class="card" x="100" y="204" width="210" height="42" rx="8"/>
+  <text class="small" x="116" y="231">Qwen 3.6 27B</text>
+  <text class="tiny" x="100" y="282">IMAGE MODEL</text>
+  <rect class="card" x="100" y="296" width="210" height="42" rx="8"/>
+  <text class="small" x="116" y="323">Qwen Image 2512</text>
+  <rect class="card" x="100" y="374" width="95" height="42" rx="8"/>
+  <text class="small" x="118" y="401">512x512</text>
+  <rect class="card" x="215" y="374" width="95" height="42" rx="8"/>
+  <text class="small" x="242" y="401">12</text>
+
+  <line class="line" x1="350" y1="132" x2="1030" y2="132"/>
+  <rect class="tab" x="386" y="86" width="86" height="34" rx="8"/>
+  <text class="small" x="414" y="108">Chat</text>
+  <rect class="card" x="482" y="86" width="86" height="34" rx="8"/>
+  <text class="small" x="510" y="108">Image</text>
+  <rect class="card" x="578" y="86" width="86" height="34" rx="8"/>
+  <text class="small" x="606" y="108">Stack</text>
+
+  <rect class="bubble" x="660" y="182" width="300" height="62" rx="10"/>
+  <text class="small" x="684" y="217">Run a local model request</text>
+  <rect class="card" x="405" y="284" width="360" height="78" rx="10"/>
+  <text class="small" x="429" y="316">The gateway forwards the request</text>
+  <text class="small" x="429" y="340">and starts a worker only when needed.</text>
+  <rect class="card" x="405" y="410" width="560" height="82" rx="10"/>
+  <text class="small" x="429" y="442">Stack tab: health, model registry, integration snippets</text>
+  <text class="small" x="429" y="466">Open WebUI · LiteLLM · curl</text>
+</svg>

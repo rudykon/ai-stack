@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="440" viewBox="0 0 1100 440" role="img" aria-labelledby="title desc">
+  <title id="title">Request Flow</title>
+  <desc id="desc">OpenAI-compatible chat and image requests are routed through the gateway to lazy workers.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbfcfd}.lane{fill:#fff;stroke:#d8dee4;stroke-width:2}.chat{fill:#edf5ff;stroke:#b8d2f0;stroke-width:2}.image{fill:#fff1c7;stroke:#e6c75b;stroke-width:2}.worker{fill:#e3f4ec;stroke:#a9d9bf;stroke-width:2}.text{font:700 20px Inter,Segoe UI,Arial,sans-serif;fill:#1f2328}.small{font:500 14px Inter,Segoe UI,Arial,sans-serif;fill:#667085}.mono{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#3d444d}.line{stroke:#7c8794;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7c8794"/></marker>
+  </defs>
+  <rect class="bg" width="1100" height="440" rx="24"/>
+  <text class="text" x="48" y="58">Unified Gateway Request Flow</text>
+  <text class="small" x="48" y="84">One /v1 endpoint routes both text and image workloads without keeping models loaded.</text>
+
+  <rect class="lane" x="60" y="140" width="190" height="90" rx="12"/>
+  <text class="text" x="92" y="178">Client</text>
+  <text class="mono" x="92" y="204">Open WebUI · curl</text>
+
+  <rect class="lane" x="330" y="140" width="210" height="90" rx="12"/>
+  <text class="text" x="362" y="178">Gateway</text>
+  <text class="mono" x="362" y="204">:8080/v1</text>
+
+  <rect class="chat" x="640" y="70" width="210" height="90" rx="12"/>
+  <text class="text" x="672" y="108">Chat route</text>
+  <text class="mono" x="672" y="134">/chat/completions</text>
+
+  <rect class="image" x="640" y="250" width="210" height="90" rx="12"/>
+  <text class="text" x="672" y="288">Image route</text>
+  <text class="mono" x="672" y="314">/images/generations</text>
+
+  <rect class="worker" x="910" y="70" width="150" height="90" rx="12"/>
+  <text class="text" x="936" y="108">Text</text>
+  <text class="small" x="936" y="134">lazy worker</text>
+
+  <rect class="worker" x="910" y="250" width="150" height="90" rx="12"/>
+  <text class="text" x="936" y="288">Image</text>
+  <text class="small" x="936" y="314">lazy worker</text>
+
+  <path class="line" d="M250 185 H330"/>
+  <path class="line" d="M540 170 C585 135 600 115 640 115"/>
+  <path class="line" d="M540 200 C585 238 600 295 640 295"/>
+  <path class="line" d="M850 115 H910"/>
+  <path class="line" d="M850 295 H910"/>
+
+  <text class="small" x="340" y="272">Idle timeout terminates workers</text>
+  <text class="small" x="340" y="296">to release CUDA memory.</text>
+</svg>

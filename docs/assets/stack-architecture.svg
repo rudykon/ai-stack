@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Local AI Stack Architecture</title>
+  <desc id="desc">Layered architecture showing UI, gateway, serving workers, models and local assets.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f6f7f9}.panel{fill:#fff;stroke:#d8dee4;stroke-width:2}.soft{fill:#eef3f1;stroke:#d8dee4;stroke-width:2}.blue{fill:#edf5ff;stroke:#b8d2f0;stroke-width:2}.green{fill:#e3f4ec;stroke:#a9d9bf;stroke-width:2}.amber{fill:#fff1c7;stroke:#e6c75b;stroke-width:2}.text{font:600 22px Inter,Segoe UI,Arial,sans-serif;fill:#1f2328}.small{font:500 15px Inter,Segoe UI,Arial,sans-serif;fill:#667085}.mono{font:600 14px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#3d444d}.line{stroke:#7c8794;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7c8794"/></marker>
+  </defs>
+  <rect class="bg" width="1100" height="560" rx="24"/>
+  <text class="text" x="48" y="58">Qwen Local AI Stack</text>
+  <text class="small" x="48" y="86">A LAN-first OpenAI-compatible console with lazy GPU workers</text>
+
+  <rect class="blue" x="60" y="130" width="230" height="110" rx="12"/>
+  <text class="text" x="92" y="175">Web UI</text>
+  <text class="small" x="92" y="202">Chat · Image · Stack</text>
+  <text class="mono" x="92" y="224">:8080</text>
+
+  <rect class="soft" x="430" y="130" width="240" height="110" rx="12"/>
+  <text class="text" x="462" y="175">Gateway</text>
+  <text class="small" x="462" y="202">OpenAI-compatible /v1</text>
+  <text class="mono" x="462" y="224">web_ui.py</text>
+
+  <rect class="green" x="810" y="92" width="230" height="100" rx="12"/>
+  <text class="text" x="842" y="136">Chat API</text>
+  <text class="small" x="842" y="161">lazy text proxy</text>
+  <text class="mono" x="842" y="181">:8000 -> :18000</text>
+
+  <rect class="amber" x="810" y="228" width="230" height="100" rx="12"/>
+  <text class="text" x="842" y="272">Image API</text>
+  <text class="small" x="842" y="297">lazy image proxy</text>
+  <text class="mono" x="842" y="317">:8001 -> :18001</text>
+
+  <rect class="panel" x="60" y="370" width="280" height="110" rx="12"/>
+  <text class="text" x="92" y="414">Registry</text>
+  <text class="small" x="92" y="441">models, health checks, runners</text>
+  <text class="mono" x="92" y="463">model_registry.json</text>
+
+  <rect class="panel" x="430" y="370" width="240" height="110" rx="12"/>
+  <text class="text" x="462" y="414">Operations</text>
+  <text class="small" x="462" y="441">logs and generated assets</text>
+  <text class="mono" x="462" y="463">logs/ · outputs/</text>
+
+  <rect class="panel" x="810" y="370" width="230" height="110" rx="12"/>
+  <text class="text" x="842" y="414">Models</text>
+  <text class="small" x="842" y="441">Qwen3.6 + Qwen-Image</text>
+  <text class="mono" x="842" y="463">models/ ignored</text>
+
+  <path class="line" d="M290 185 H430"/>
+  <path class="line" d="M670 170 C730 150 750 142 810 142"/>
+  <path class="line" d="M670 208 C730 246 750 278 810 278"/>
+  <path class="line" d="M550 240 V370"/>
+  <path class="line" d="M925 192 V228"/>
+  <path class="line" d="M925 328 V370"/>
+  <path class="line" d="M340 425 H430"/>
+</svg>
