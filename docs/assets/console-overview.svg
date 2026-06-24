@@ -20,14 +20,16 @@
 
   <text class="tiny" x="96" y="190">CHAT MODEL</text>
   <rect class="input" x="96" y="204" width="226" height="44" rx="8"/>
-  <text class="small" x="114" y="232">Qwen 3.6 27B</text>
+  <text class="small" x="114" y="232">Local chat model</text>
   <text class="tiny" x="96" y="284">IMAGE MODEL</text>
   <rect class="input" x="96" y="298" width="226" height="44" rx="8"/>
-  <text class="small" x="114" y="326">Qwen Image 2512</text>
+  <text class="small" x="114" y="326">Local image model</text>
   <text class="tiny" x="96" y="378">GENERATION</text>
   <rect class="input" x="96" y="392" width="102" height="42" rx="8"/><text class="small" x="116" y="419">512x512</text>
   <rect class="input" x="220" y="392" width="102" height="42" rx="8"/><text class="small" x="248" y="419">12 steps</text>
-  <rect class="input" x="96" y="458" width="226" height="44" rx="8"/><text class="small" x="114" y="486">local-dev-key</text>
+  <rect class="input" x="96" y="458" width="226" height="44" rx="8"/>
+  <rect x="116" y="472" width="16" height="16" rx="4" fill="#fff" stroke="#d8dee4" stroke-width="1.2"/>
+  <text class="small" x="144" y="486">Magic prompt</text>
 
   <line class="line" x1="360" y1="134" x2="1138" y2="134"/>
   <rect class="tabOn" x="400" y="88" width="90" height="36" rx="8"/><text class="small" x="431" y="111">Chat</text>

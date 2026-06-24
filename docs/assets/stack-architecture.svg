@@ -47,8 +47,6 @@
   <path class="line" d="M354 339 H466"/>
   <path class="line" d="M736 255 H848"/>
   <path class="line" d="M736 339 H848"/>
-  <path class="soft" d="M601 468 V520 H983 V438"/>
-
   <rect class="pill" x="426" y="520" width="348" height="42" rx="8"/>
   <text class="tag" x="472" y="547">lazy load · idle unload · local first</text>
 </svg>
