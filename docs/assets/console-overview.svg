@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
   <title id="title">Console Overview</title>
-  <desc id="desc">A polished mockup of the local stack console with chat, image and stack panels.</desc>
+  <desc id="desc">A polished mockup of the local stack console with model controls and a chat panel.</desc>
   <defs>
     <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#111827" flood-opacity="0.12"/></filter>
     <style>
-      .bg{fill:#f7f8fa}.window{fill:#fff;stroke:#d8dee4;stroke-width:1.5;filter:url(#shadow)}.sidebar{fill:#f1f5f4;stroke:#d8dee4;stroke-width:1.5}.accent{fill:#176b5b}.line{stroke:#d8dee4;stroke-width:1.4}.input{fill:#fff;stroke:#d8dee4;stroke-width:1.3}.tabOn{fill:#e9f6ef;stroke:#a9d9bf;stroke-width:1.2}.tab{fill:#fff;stroke:#d8dee4;stroke-width:1.2}.chat{fill:#edf5ff;stroke:#cfe0f5;stroke-width:1.2}.assist{fill:#fff;stroke:#d8dee4;stroke-width:1.2}.image{fill:#fff5d8;stroke:#e7cf74;stroke-width:1.2}.stack{fill:#f3eefb;stroke:#d3c2f0;stroke-width:1.2}.ok{fill:#d8f1df}.idle{fill:#fff1c7}.title{font:800 24px Inter,Segoe UI,Arial,sans-serif;fill:#18202a}.label{font:750 16px Inter,Segoe UI,Arial,sans-serif;fill:#1f2328}.small{font:500 13px Inter,Segoe UI,Arial,sans-serif;fill:#667085}.tiny{font:760 11px Inter,Segoe UI,Arial,sans-serif;fill:#667085;letter-spacing:.5px}.mono{font:650 12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#3d444d}.white{font:800 17px Inter,Segoe UI,Arial,sans-serif;fill:#fff}
+      .bg{fill:#f7f8fa}.window{fill:#fff;stroke:#d8dee4;stroke-width:1.5;filter:url(#shadow)}.sidebar{fill:#f1f5f4;stroke:#d8dee4;stroke-width:1.5}.accent{fill:#176b5b}.line{stroke:#d8dee4;stroke-width:1.4}.input{fill:#fff;stroke:#d8dee4;stroke-width:1.3}.tabOn{fill:#e9f6ef;stroke:#a9d9bf;stroke-width:1.2}.tab{fill:#fff;stroke:#d8dee4;stroke-width:1.2}.chat{fill:#edf5ff;stroke:#cfe0f5;stroke-width:1.2}.assist{fill:#fff;stroke:#d8dee4;stroke-width:1.2}.ok{fill:#d8f1df}.title{font:800 24px Inter,Segoe UI,Arial,sans-serif;fill:#18202a}.label{font:750 16px Inter,Segoe UI,Arial,sans-serif;fill:#1f2328}.small{font:500 13px Inter,Segoe UI,Arial,sans-serif;fill:#667085}.tiny{font:760 11px Inter,Segoe UI,Arial,sans-serif;fill:#667085;letter-spacing:.5px}.mono{font:650 12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#3d444d}.white{font:800 17px Inter,Segoe UI,Arial,sans-serif;fill:#fff}
     </style>
   </defs>
   <rect class="bg" width="1200" height="720" rx="20"/>
@@ -48,14 +48,4 @@
   <text class="small" x="436" y="552">Send a message</text>
   <rect class="accent" x="982" y="522" width="96" height="74" rx="8"/>
   <text class="white" x="1014" y="565">Send</text>
-
-  <rect class="image" x="930" y="296" width="148" height="148" rx="8"/>
-  <rect x="958" y="324" width="92" height="92" rx="46" fill="#d85442" opacity="0.92"/>
-  <text class="tiny" x="962" y="464">IMAGE RESULT</text>
-
-  <rect class="stack" x="410" y="410" width="438" height="74" rx="8"/>
-  <text class="label" x="440" y="442">Stack health</text>
-  <text class="small" x="440" y="466">UI · Gateway · Runners · Operations</text>
-  <rect class="ok" x="710" y="432" width="58" height="24" rx="12"/><text class="tiny" x="724" y="448">READY</text>
-  <rect class="idle" x="778" y="432" width="50" height="24" rx="12"/><text class="tiny" x="792" y="448">IDLE</text>
 </svg>
