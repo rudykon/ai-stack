@@ -172,14 +172,38 @@ POST /v1/chat/completions
 POST /v1/images/generations
 ```
 
-The Stack tab in the Web UI shows the active layers, model health, and copyable Open WebUI/LiteLLM/curl snippets. The design follows this split:
+The Stack tab in the Web UI shows the active layers, model health, and copyable Open WebUI/LiteLLM/curl snippets.
 
-- Open WebUI-style UI surface: `web/` + `web_ui.py`
-- LiteLLM-style gateway and routing: `web_ui.py` + `model_registry.json`
-- vLLM/SGLang target layer: future high-throughput replacement for the text worker
-- ComfyUI/LocalAI target layer: future workflow or multi-modal replacement for the image worker
+## Relationship to community projects
 
-Local reference snapshots and integration notes are in `references/`, `docs/STACK.md`, and `integrations/`.
+This project references community projects for product shape and architecture layering; it does not copy their code. The mapping is:
+
+- UI layer: Open WebUI informs the local model console, multi-model entry points, and OpenAI-compatible client experience [1].
+- Gateway layer: LiteLLM informs the unified API gateway, model routing, and external tool integration pattern [2].
+- Serving layer: vLLM and SGLang inform the high-throughput OpenAI-compatible serving direction for a future text worker replacement [3,4].
+- Image and multi-modal layer: ComfyUI informs image workflow design, while LocalAI informs local multi-modal API aggregation [5,6].
+
+Local reference snapshots and integration notes are in:
+
+```text
+docs/STACK.md
+integrations/
+references/
+```
+
+### Reference projects
+
+[1] Open WebUI. *open-webui/open-webui*. GitHub repository. <https://github.com/open-webui/open-webui>. Accessed: 2026-06-24.
+
+[2] LiteLLM. *BerriAI/litellm*. GitHub repository. <https://github.com/BerriAI/litellm>. Accessed: 2026-06-24.
+
+[3] vLLM. *vllm-project/vllm*. GitHub repository. <https://github.com/vllm-project/vllm>. Accessed: 2026-06-24.
+
+[4] SGLang. *sgl-project/sglang*. GitHub repository. <https://github.com/sgl-project/sglang>. Accessed: 2026-06-24.
+
+[5] ComfyUI. *Comfy-Org/ComfyUI*. GitHub repository. <https://github.com/Comfy-Org/ComfyUI>. Accessed: 2026-06-24.
+
+[6] LocalAI. *mudler/LocalAI*. GitHub repository. <https://github.com/mudler/LocalAI>. Accessed: 2026-06-24.
 
 Gateway smoke test:
 
