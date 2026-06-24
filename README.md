@@ -1,10 +1,10 @@
-# Qwen3.6-27B local API
+# Local AI Stack
 
 [English](README.md) | [中文](README.zh-CN.md)
 
 ![Local AI Stack architecture](docs/assets/stack-architecture.svg)
 
-This directory deploys `Qwen/Qwen3.6-27B` from ModelScope behind an OpenAI-compatible text chat API.
+This project currently deploys `Qwen/Qwen3.6-27B` from ModelScope behind an OpenAI-compatible text chat API, while keeping the gateway and registry generic for additional local models.
 
 The public API process is a lightweight proxy on port `8000`. It starts an internal model worker only when a chat request arrives, then stops that worker after `IDLE_UNLOAD_SECONDS` seconds without active requests. This fully releases GPU memory when idle.
 

@@ -1,10 +1,10 @@
-# Qwen 本地 AI Stack
+# 本地 AI Stack
 
 [English](README.md) | 中文
 
 ![本地 AI Stack 架构](docs/assets/stack-architecture.svg)
 
-这是一个面向局域网和单机 GPU 的本地 AI 工作台。它把 Qwen 文本模型、Qwen-Image 文生图模型、OpenAI-compatible API、轻量 Web UI、统一网关和显存友好的懒加载机制放在同一个项目里。
+这是一个面向局域网和单机 GPU 的本地 AI 工作台。当前默认集成 Qwen 文本模型和 Qwen-Image 文生图模型，同时保留通用 OpenAI-compatible 网关、模型注册中心、轻量 Web UI 和显存友好的懒加载机制，方便后续接入其他大模型。
 
 它的目标不是替代 Open WebUI、ComfyUI、vLLM、SGLang 或 LiteLLM，而是在当前机器上提供一个更轻、更直接可用、便于二次开发的本地服务底座。
 

@@ -8,7 +8,7 @@
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7c8794"/></marker>
   </defs>
   <rect class="bg" width="1100" height="560" rx="24"/>
-  <text class="text" x="48" y="58">Qwen Local AI Stack</text>
+  <text class="text" x="48" y="58">Local AI Stack</text>
   <text class="small" x="48" y="86">A LAN-first OpenAI-compatible console with lazy GPU workers</text>
 
   <rect class="blue" x="60" y="130" width="230" height="110" rx="12"/>
