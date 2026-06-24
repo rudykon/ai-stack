@@ -15,7 +15,7 @@ from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parent
 MODEL_NAME = os.getenv("MODEL_NAME", "Qwen/Qwen3.6-27B")
-API_KEY = os.getenv("API_KEY", "sk-123456789")
+API_KEY = os.getenv("API_KEY", "local-dev-key")
 HOST = os.getenv("HOST", "0.0.0.0")
 PORT = int(os.getenv("PORT", "8000"))
 WORKER_HOST = os.getenv("WORKER_HOST", "127.0.0.1")

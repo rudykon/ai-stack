@@ -10,9 +10,9 @@ The public API process is a lightweight proxy on port `8000`. It starts an inter
 
 ## Current endpoint
 
-- LAN base URL: `http://172.22.13.38:8000/v1`
+- LAN base URL: `http://<LAN_IP>:8000/v1`
 - Local base URL: `http://127.0.0.1:8000/v1`
-- API key: `sk-123456789`
+- API key: `local-dev-key`
 - Model name: `Qwen/Qwen3.6-27B`
 
 ## Files
@@ -42,7 +42,7 @@ To avoid keeping the API proxies resident all the time, start the Web UI and bot
 ./api.sh
 ```
 
-Then open `http://127.0.0.1:8080`. Keep that terminal open while using the Web UI or APIs. Press `Ctrl+C` to stop the Web UI, both API proxies, and any worker they started. Quick helpers:
+Then open `http://127.0.0.1:8080`. For another device on the same network, use the LAN address printed by `./api.sh`. Replace `<LAN_IP>` in examples with that address. Keep that terminal open while using the Web UI or APIs. Press `Ctrl+C` to stop the Web UI, both API proxies, and any worker they started. Quick helpers:
 
 ```bash
 ./api.sh status
@@ -91,7 +91,7 @@ curl http://127.0.0.1:8000/health
 ```bash
 curl http://127.0.0.1:8000/v1/chat/completions \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer sk-123456789' \
+  -H 'Authorization: Bearer local-dev-key' \
   -d '{
     "model": "Qwen/Qwen3.6-27B",
     "messages": [{"role": "user", "content": "Say OK in one word."}],
@@ -118,9 +118,9 @@ The wrapper currently targets text chat. The upstream model is multimodal; for i
 
 `Qwen/Qwen-Image-2512` is downloaded in `models/Qwen-Image-2512` and served through an OpenAI-compatible Images API.
 
-- LAN base URL: `http://172.22.13.38:8001/v1`
+- LAN base URL: `http://<LAN_IP>:8001/v1`
 - Local base URL: `http://127.0.0.1:8001/v1`
-- API key: `sk-123456789`
+- API key: `local-dev-key`
 - Image model name: `Qwen/Qwen-Image-2512`
 - Public proxy: `proxy_qwen_image.py`
 - Internal worker: `qwen_image_worker.py`
@@ -145,7 +145,7 @@ Example request:
 ```bash
 curl http://127.0.0.1:8001/v1/images/generations \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sk-123456789" \
+  -H "Authorization: Bearer local-dev-key" \
   -d "{\"model\":\"Qwen/Qwen-Image-2512\",\"prompt\":\"A red circle on a white background\",\"size\":\"512x512\",\"n\":1,\"response_format\":\"b64_json\",\"extra_body\":{\"num_inference_steps\":12,\"true_cfg_scale\":4.0,\"seed\":42}}"
 ```
 
@@ -161,7 +161,7 @@ The Web UI now also acts as a lightweight LiteLLM-style gateway. In addition to 
 
 ```bash
 http://127.0.0.1:8080/v1
-http://172.22.13.38:8080/v1
+http://<LAN_IP>:8080/v1
 ```
 
 Supported gateway endpoints:

@@ -4,11 +4,11 @@ model_list:
   - model_name: qwen-chat
     litellm_params:
       model: openai/Qwen/Qwen3.6-27B
-      api_base: http://172.22.13.38:8080/v1
-      api_key: sk-123456789
+      api_base: http://<LAN_IP>:8080/v1
+      api_key: local-dev-key
 
   - model_name: qwen-image
     litellm_params:
       model: openai/Qwen/Qwen-Image-2512
-      api_base: http://172.22.13.38:8080/v1
-      api_key: sk-123456789
+      api_base: http://<LAN_IP>:8080/v1
+      api_key: local-dev-key

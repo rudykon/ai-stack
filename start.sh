@@ -6,7 +6,7 @@ cd "$ROOT"
 
 export MODEL_PATH="${MODEL_PATH:-$ROOT/models/Qwen3.6-27B}"
 export MODEL_NAME="${MODEL_NAME:-Qwen/Qwen3.6-27B}"
-export API_KEY="${API_KEY:-sk-123456789}"
+export API_KEY="${API_KEY:-local-dev-key}"
 export HOST="${HOST:-0.0.0.0}"
 export PORT="${PORT:-8000}"
 export IDLE_UNLOAD_SECONDS="${IDLE_UNLOAD_SECONDS:-300}"

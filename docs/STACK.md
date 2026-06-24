@@ -33,13 +33,13 @@ This project keeps the lightweight local runner that already works on this machi
 Use this single base URL for external clients:
 
 ```text
-http://172.22.13.38:8080/v1
+http://<LAN_IP>:8080/v1
 ```
 
 The gateway accepts the same API key as the existing proxies:
 
 ```text
-sk-123456789
+local-dev-key
 ```
 
 Supported endpoints:

@@ -10,8 +10,8 @@
 
 ## 主要特色
 
-- **局域网优先**：默认通过 `http://172.22.13.38:8080` 访问 Web 控制台。
-- **统一 OpenAI-compatible 网关**：外部工具可以只接 `http://172.22.13.38:8080/v1`。
+- **局域网优先**：默认通过 `http://<LAN_IP>:8080` 访问 Web 控制台。
+- **统一 OpenAI-compatible 网关**：外部工具可以只接 `http://<LAN_IP>:8080/v1`。
 - **文本与文生图并存**：同时提供 Qwen3.6-27B 聊天和 Qwen-Image-2512 图片生成。
 - **显存友好的懒加载**：模型 worker 首次请求才启动，空闲后自动退出释放 CUDA 显存。
 - **Stack 可视化**：Web UI 里有 Stack 页面，可查看 UI、Gateway、LLM Serving、Image Workflow 和 Operations 状态。
@@ -32,12 +32,12 @@
 
 ```text
 Web UI：http://127.0.0.1:8080
-局域网 Web UI：http://172.22.13.38:8080
-统一网关：http://172.22.13.38:8080/v1
-API key：sk-123456789
+局域网 Web UI：http://<LAN_IP>:8080
+统一网关：http://<LAN_IP>:8080/v1
+API key：local-dev-key
 ```
 
-保持这个终端打开。按 `Ctrl+C` 会停止 Web UI、文本 API、图片 API，以及它们启动的 worker。
+把示例里的 `<LAN_IP>` 替换为 `./api.sh` 启动时打印的局域网地址。保持这个终端打开。按 `Ctrl+C` 会停止 Web UI、文本 API、图片 API，以及它们启动的 worker。
 
 常用命令：
 
@@ -63,7 +63,7 @@ POST /v1/images/generations
 ```bash
 curl http://127.0.0.1:8080/v1/chat/completions \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer sk-123456789' \
+  -H 'Authorization: Bearer local-dev-key' \
   -d '{
     "model": "Qwen/Qwen3.6-27B",
     "messages": [{"role": "user", "content": "Say OK in one word."}],
@@ -77,7 +77,7 @@ curl http://127.0.0.1:8080/v1/chat/completions \
 ```bash
 curl http://127.0.0.1:8080/v1/images/generations \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer sk-123456789' \
+  -H 'Authorization: Bearer local-dev-key' \
   -d '{
     "model": "Qwen/Qwen-Image-2512",
     "prompt": "A red circle on a white background",
@@ -117,7 +117,7 @@ references/               社区项目 README 快照
 
 ```text
 http://127.0.0.1:8000/v1
-http://172.22.13.38:8000/v1
+http://<LAN_IP>:8000/v1
 ```
 
 健康检查：
@@ -139,7 +139,7 @@ curl http://127.0.0.1:8000/health
 
 ```text
 http://127.0.0.1:8001/v1
-http://172.22.13.38:8001/v1
+http://<LAN_IP>:8001/v1
 ```
 
 健康检查：
@@ -198,7 +198,7 @@ references/
 ```bash
 curl http://127.0.0.1:8080/api/health
 curl http://127.0.0.1:8080/api/stack
-curl http://127.0.0.1:8080/v1/models -H 'Authorization: Bearer sk-123456789'
+curl http://127.0.0.1:8080/v1/models -H 'Authorization: Bearer local-dev-key'
 ```
 
 会触发文本模型加载的冒烟测试：

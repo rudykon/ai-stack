@@ -6,7 +6,7 @@ cd "$ROOT"
 
 export IMAGE_MODEL_PATH="${IMAGE_MODEL_PATH:-$ROOT/models/Qwen-Image-2512}"
 export IMAGE_MODEL_NAME="${IMAGE_MODEL_NAME:-Qwen/Qwen-Image-2512}"
-export API_KEY="${API_KEY:-sk-123456789}"
+export API_KEY="${API_KEY:-local-dev-key}"
 export HOST="${HOST:-0.0.0.0}"
 export PORT="${PORT:-8001}"
 export IMAGE_WORKER_PORT="${IMAGE_WORKER_PORT:-18001}"

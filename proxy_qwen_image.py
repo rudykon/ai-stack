@@ -14,7 +14,7 @@ from fastapi.staticfiles import StaticFiles
 
 ROOT = Path(__file__).resolve().parent
 MODEL_NAME = os.getenv("IMAGE_MODEL_NAME", "Qwen/Qwen-Image")
-API_KEY = os.getenv("API_KEY", "sk-123456789")
+API_KEY = os.getenv("API_KEY", "local-dev-key")
 HOST = os.getenv("HOST", "0.0.0.0")
 PORT = int(os.getenv("PORT", "8001"))
 WORKER_HOST = os.getenv("IMAGE_WORKER_HOST", "127.0.0.1")

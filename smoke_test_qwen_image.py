@@ -3,7 +3,7 @@ from pathlib import Path
 
 from openai import OpenAI
 
-client = OpenAI(base_url="http://127.0.0.1:8001/v1", api_key="EMPTY")
+client = OpenAI(base_url="http://127.0.0.1:8001/v1", api_key="local-dev-key")
 
 response = client.images.generate(
     model="Qwen/Qwen-Image-2512",

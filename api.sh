@@ -8,9 +8,31 @@ mkdir -p logs
 TEXT_LOG="$ROOT/logs/proxy.log"
 IMAGE_LOG="$ROOT/logs/qwen-image-proxy.log"
 WEB_LOG="$ROOT/logs/web-ui.log"
-API_KEY="${API_KEY:-sk-123456789}"
+API_KEY="${API_KEY:-local-dev-key}"
 WEB_HOST="${WEB_HOST:-0.0.0.0}"
 WEB_PORT="${WEB_PORT:-8080}"
+
+# Detect a LAN address for display only. Override with LAN_HOST if needed.
+detect_lan_ip() {
+  if [ -n "${LAN_HOST:-}" ]; then
+    printf '%s\n' "$LAN_HOST"
+    return
+  fi
+  if command -v ip >/dev/null 2>&1; then
+    local detected
+    detected="$(ip route get 1.1.1.1 2>/dev/null | awk '{for (i=1;i<=NF;i++) if ($i=="src") {print $(i+1); exit}}')"
+    if [ -n "$detected" ]; then
+      printf '%s\n' "$detected"
+      return
+    fi
+  fi
+  if command -v hostname >/dev/null 2>&1; then
+    hostname -I 2>/dev/null | awk '{print $1}'
+  fi
+}
+
+LAN_IP="$(detect_lan_ip)"
+LAN_IP="${LAN_IP:-<LAN_IP>}"
 
 stop_all() {
   "$ROOT/stop.sh" >/dev/null 2>&1 || true
@@ -85,10 +107,10 @@ Text API:  http://127.0.0.1:8000/v1
 Image API: http://127.0.0.1:8001/v1
 API key:   $API_KEY
 
-LAN web:     http://172.22.13.38:${WEB_PORT}
-LAN gateway: http://172.22.13.38:${WEB_PORT}/v1
-LAN text:    http://172.22.13.38:8000/v1
-LAN image:   http://172.22.13.38:8001/v1
+LAN web:     http://${LAN_IP}:${WEB_PORT}
+LAN gateway: http://${LAN_IP}:${WEB_PORT}/v1
+LAN text:    http://${LAN_IP}:8000/v1
+LAN image:   http://${LAN_IP}:8001/v1
 
 Logs:
   $TEXT_LOG

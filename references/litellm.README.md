@@ -167,7 +167,7 @@ from uuid import uuid4
 import httpx
 
 base_url = "http://localhost:4000/a2a/my-agent"  # LiteLLM proxy + agent name
-headers = {"Authorization": "Bearer sk-1234"}    # LiteLLM Virtual Key
+headers = {"Authorization": "Bearer example-virtual-key"}    # LiteLLM Virtual Key
 
 async with httpx.AsyncClient(headers=headers) as httpx_client:
     resolver = A2ACardResolver(httpx_client=httpx_client, base_url=base_url)
@@ -227,7 +227,7 @@ async with stdio_client(server_params) as (read, write):
 
 ```bash
 curl -X POST 'http://0.0.0.0:4000/v1/chat/completions' \
-  -H 'Authorization: Bearer sk-1234' \
+  -H 'Authorization: Bearer example-virtual-key' \
   -H 'Content-Type: application/json' \
   -d '{
     "model": "gpt-4o",
@@ -249,7 +249,7 @@ curl -X POST 'http://0.0.0.0:4000/v1/chat/completions' \
     "LiteLLM": {
       "url": "http://localhost:4000/mcp/",
       "headers": {
-        "x-litellm-api-key": "Bearer sk-1234"
+        "x-litellm-api-key": "Bearer example-virtual-key"
       }
     }
   }
